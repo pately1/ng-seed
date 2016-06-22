@@ -37,9 +37,35 @@
                         templateUrl: 'app/features/footer/footer.tmpl.html',
                         controller: 'FooterController',
                         controllerAs: 'footerVm'
-                    }
+                    },
+                  'login@egen': {
+                    templateUrl: 'app/features/login/login.html'
+                  }
                 }
             })
+          .state('login', {
+            url: '/login',
+            views: {
+              '@': {
+                templateUrl: 'app/features/login/login.html'
+              },
+              'header@login': {
+                templateUrl: 'app/features/header/header.tmpl.html'
+              }
+            }
+
+          })
+          .state('signup', {
+            url: '/signup',
+            views: {
+              '@': {
+                templateUrl: 'app/features/signup/signup.html'
+              },
+              'header@signup': {
+                templateUrl: 'app/features/header/header.tmpl.html'
+              }
+            }
+          })
             .state('egen.404', {
                 templateUrl: 'app/egen.404.tmpl.html'
             });

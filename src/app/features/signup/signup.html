@@ -1,0 +1,29 @@
+<header ui-view="header"></header>
+<div class="col-md-offset-4 col-md-8 text-center">
+  <div class="panel panel-primary" style="max-width: 400px;">
+    <div class="panel-heading">
+      <h3 class="panel-title">Create an Account</h3>
+    </div>
+    <div class="panel-body">
+      <form name="myForm2">
+        <div class="input-group-lg has-feedback">
+          <input type="text" name="user2" minlength="6" class="form-control" placeholder="Username" required>
+          <!--<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="!myForm2.user2.$invalid"></span>-->
+          <!--<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="myForm2.user2.$touched && myForm2.user2.$invalid"></span>-->
+        </div><br/>
+        <div class="input-group-lg has-feedback">
+          <input type="password" class="form-control" placeholder="Password" name="pwd2" minlength="6" required>
+          <!--<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="!myForm2.pwd2.$invalid"></span>-->
+        </div><br/>
+        <div class="input-group-lg has-feedback">
+          <input type="email" class="form-control" placeholder="E-mail Address" name="email2" required>
+          <!--<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="!myForm2.email2.$invalid"></span>-->
+        </div><br/>
+        <div>
+          <a class="btn btn-default btn-lg" href="#/login" >Create</a>
+          <a class="btn btn-default btn-lg" href="index.html">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

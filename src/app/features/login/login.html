@@ -1,0 +1,22 @@
+<header ui-view="header"></header>
+<div class="col-md-offset-4 col-md-8 text-center">
+  <div class="panel panel-primary" style="max-width: 400px;">
+    <div class="panel-heading">
+      <h3 class="panel-title">Log In</h3>
+    </div>
+    <div class="panel-body">
+      <form name="myForm">
+        <div class="input-group-lg has-feedback">
+          <input type="text" name="user" minlength="6" class="form-control" placeholder="Username" required>
+          <!--<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="myForm.user.$touched && myForm.user.$invalid"></span>-->
+        </div><br/>
+        <div class="input-group-lg has-feedback">
+          <input type="password" class="form-control" placeholder="Password" name="password" required>
+        </div><br/>
+        <div>
+          <a class="btn btn-default btn-lg">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
