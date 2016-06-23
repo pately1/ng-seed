@@ -9,7 +9,8 @@
             'egen.app.header',
             'egen.app.footer',
             'signup',
-            'signin'
+            'signin',
+            'homepage'
 
         ])
         .config(moduleConfig)
@@ -81,8 +82,15 @@
               }
             },
             url : '/home',
-            templateUrl: 'app/features/home/home.html'
-
+            views: {
+              '@': {
+                templateUrl: 'app/features/home/home.html',
+                controller: 'MainController'
+              },
+              'header@home': {
+                templateUrl: 'app/features/home/homeHeader.html'
+              }
+            }
           }
           )
             .state('egen.404', {

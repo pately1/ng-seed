@@ -7,16 +7,17 @@ angular.module('signin',[])
     if (myList.length == 0){
       $window.alert('Error');
     }
-    else {
+    if (myList.length != 0){
       for (var x in myList){
         if (myList[x].user2 == this.username && myList[x].pwd2 == this.pwd){
           $location.path('/home');
           $rootScope.auth = true;
         }
-        else {
-          $window.alert('Wrong Info');
-        }
       }
+
+    }
+    else {
+      $window.alert ('Incorrect Credentials !');
     }
   }
 }]);

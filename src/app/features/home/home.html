@@ -1,3 +1,6 @@
-<div>
-  <a ui-sref="egen">Click Me</a>
+<header ui-view="header"></header>
+<div ng-controller="MainController">
+  <div class="item" ng-repeat="movie in list">
+    {{movie.Title}}
+  </div>
 </div>
