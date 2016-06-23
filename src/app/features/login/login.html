@@ -5,16 +5,16 @@
       <h3 class="panel-title">Log In</h3>
     </div>
     <div class="panel-body">
-      <form name="myForm">
+      <form name="myForm" ng-controller="LoginController">
         <div class="input-group-lg has-feedback">
-          <input type="text" name="user" minlength="6" class="form-control" placeholder="Username" required>
+          <input type="text" name="user" ng-model="username" minlength="6" class="form-control" placeholder="Username" required>
           <!--<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="myForm.user.$touched && myForm.user.$invalid"></span>-->
         </div><br/>
         <div class="input-group-lg has-feedback">
-          <input type="password" class="form-control" placeholder="Password" name="password" required>
+          <input type="password" class="form-control" ng-model="pwd" placeholder="Password" name="password" required>
         </div><br/>
         <div>
-          <a class="btn btn-default btn-lg">Login</a>
+          <a class="btn btn-default btn-lg" ng-click="login()">Login</a>
         </div>
       </form>
     </div>

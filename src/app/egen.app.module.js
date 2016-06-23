@@ -7,7 +7,9 @@
 
             'egen.app.phoneFilter',
             'egen.app.header',
-            'egen.app.footer'
+            'egen.app.footer',
+            'signup',
+            'signin'
 
         ])
         .config(moduleConfig)
@@ -59,19 +61,37 @@
             url: '/signup',
             views: {
               '@': {
-                templateUrl: 'app/features/signup/signup.html'
+                templateUrl: 'app/features/signup/signup.html',
+                controller: 'SignupController',
+                controllerAs: 'signup'
               },
               'header@signup': {
                 templateUrl: 'app/features/header/header.tmpl.html'
               }
             }
           })
+
+          .state('home', {
+               resolve: {
+              check : function ($location, $rootScope) {
+                console.log($rootScope.auth);
+                if (!$rootScope.auth){
+                  $location.path('/login');
+                }
+              }
+            },
+            url : '/home',
+            templateUrl: 'app/features/home/home.html'
+
+          }
+          )
             .state('egen.404', {
                 templateUrl: 'app/egen.404.tmpl.html'
             });
     }
 
-    function moduleRun() {
+    function moduleRun($rootScope) {
+      $rootScope.auth = false;
     }
 
 })(angular);
