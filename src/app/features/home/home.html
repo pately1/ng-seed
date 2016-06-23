@@ -1,6 +1,16 @@
 <header ui-view="header"></header>
-<div ng-controller="MainController">
+<div class="container" ng-controller="MainController">
+  <div class="row">
+  <div class="scrolling" id="style-7">
   <div class="item" ng-repeat="movie in list">
-    {{movie.Title}}
+    <a href="#openModal{{movie.imdbID}}"> <img src="{{movie.Poster}}" style="height: 150px; width: 100px;"></a>
+    <div id="openModal{{movie.imdbID}}" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">x</a>
+        <h2>{{movie.Title}}  <small>Imdb Rating: {{movie.imdbRating}}</small></h2>
+      </div>
+    </div>
   </div>
+    </div>
+</div>
 </div>

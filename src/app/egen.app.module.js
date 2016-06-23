@@ -4,7 +4,7 @@
     angular
         .module('egen.app', [
             'ui-notification',
-
+            
             'egen.app.phoneFilter',
             'egen.app.header',
             'egen.app.footer',
@@ -73,14 +73,14 @@
           })
 
           .state('home', {
-               resolve: {
+               /*resolve: {
               check : function ($location, $rootScope) {
                 console.log($rootScope.auth);
                 if (!$rootScope.auth){
                   $location.path('/login');
                 }
               }
-            },
+            },*/
             url : '/home',
             views: {
               '@': {
