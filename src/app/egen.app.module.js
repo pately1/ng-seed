@@ -40,10 +40,8 @@
                         templateUrl: 'app/features/footer/footer.tmpl.html',
                         controller: 'FooterController',
                         controllerAs: 'footerVm'
-                    },
-                  'login@egen': {
-                    templateUrl: 'app/features/login/login.html'
-                  }
+                    }
+
                 }
             })
           .state('login', {
