@@ -4,7 +4,7 @@
     angular
         .module('egen.app', [
             'ui-notification',
-            
+
             'egen.app.phoneFilter',
             'egen.app.header',
             'egen.app.footer',
@@ -89,6 +89,9 @@
               },
               'header@home': {
                 templateUrl: 'app/features/home/homeHeader.html'
+              },
+              'section@home': {
+                templateUrl: 'app/features/home/test.html'
               }
             }
           }

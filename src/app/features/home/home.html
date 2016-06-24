@@ -3,13 +3,20 @@
   <div class="row">
   <div class="scrolling" id="style-7">
   <div class="item" ng-repeat="movie in list">
-    <a href="#openModal{{movie.imdbID}}"> <img src="{{movie.Poster}}" style="height: 150px; width: 100px;"></a>
-    <div id="openModal{{movie.imdbID}}" class="modalDialog">
-      <div>
-        <a href="#close" title="Close" class="close">x</a>
-        <h2>{{movie.Title}}  <small>Imdb Rating: {{movie.imdbRating}}</small></h2>
+    <button type="button"  class="btn btn-default" ng-click="open(movie)"><img src="{{movie.Poster}}" style="height: 150px; width: 100px;"></button>
+    <script type="text/ng-template" id="myModalContent.html">
+
+      <div class="modal-header">
+        <h3 class="modal-title">{{movie.Title}}</h3>
       </div>
-    </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+
+      </div>
+
+    </script>
   </div>
     </div>
 </div>
