@@ -1,0 +1,26 @@
+<div class="container" ng-controller="MainController">
+  <ul class="nav nav-tabs class1" role="tablist">
+    <li role="presentation" ng-class="{active:isSelected(1)}"><a ng-click="select(1)" role="button">Movies</a> </li>
+    <li role="presentation" ng-class="{active:isSelected(2)}"><a ng-click="select(2)" role="button">TV Shows</a> </li>
+  </ul>
+  <div class="row">
+    <div class="scrolling" id="style-7">
+      <div class="item" ng-repeat="movie in list | filter:filtText">
+        <a role="button" ng-click="open(movie)"><img src="{{movie.Poster}}" style="height: 150px; width: 100px;"></a>
+        <script type="text/ng-template" id="myModalContent.html">
+
+          <div class="modal-header">
+            <h3 class="modal-title text-center">{{movie.Title}}</h3>
+          </div>
+          <div class="modal-body">
+            <p ng-repeat="(key,value) in movie"><strong>{{key}} :</strong> {{value}}</p>
+          </div>
+          <div class="modal-footer">
+
+          </div>
+
+        </script>
+      </div>
+    </div>
+  </div>
+</div>

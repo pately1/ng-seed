@@ -20,5 +20,19 @@ angular.module('homepage', [])
     });
 
   };
+  $scope.filtText = 'movie';
+  $scope.tab = 1;
+  $scope.isSelected = function (checkTab) {
+    return ($scope.tab == checkTab);
+  }
+  $scope.select = function (setTab) {
+    $scope.tab = setTab;
+    if ($scope.tab == 1){
+      $scope.filtText = 'movie';
+    }
+    else {
+      $scope.filtText = 'series';
+    }
+  }
 
 }]);

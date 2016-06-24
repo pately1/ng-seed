@@ -91,7 +91,7 @@
                 templateUrl: 'app/features/home/homeHeader.html'
               },
               'section@home': {
-                templateUrl: 'app/features/home/test.html'
+                templateUrl: 'app/features/home/catalogMovies.html'
               }
             }
           }

@@ -1,23 +1,2 @@
 <header ui-view="header"></header>
-<div class="container" ng-controller="MainController">
-  <div class="row">
-  <div class="scrolling" id="style-7">
-  <div class="item" ng-repeat="movie in list">
-    <button type="button"  class="btn btn-default" ng-click="open(movie)"><img src="{{movie.Poster}}" style="height: 150px; width: 100px;"></button>
-    <script type="text/ng-template" id="myModalContent.html">
-
-      <div class="modal-header">
-        <h3 class="modal-title">{{movie.Title}}</h3>
-      </div>
-      <div class="modal-body">
-
-      </div>
-      <div class="modal-footer">
-
-      </div>
-
-    </script>
-  </div>
-    </div>
-</div>
-</div>
+<section ui-view="section"></section>
