@@ -36,7 +36,7 @@ footer {
 
 .scrolling {
   white-space: nowrap;
-  overflow-x: scroll;
+  overflow-x: auto;
   margin-left: 30px;
   margin-bottom: 25px;
 }
@@ -67,5 +67,8 @@ footer {
   margin-left: 15px;
   letter-spacing: 5px;
   font-family: cursive;
-
+  display: inline;
+}
+h3>div{
+  font-size: 30px;
 }

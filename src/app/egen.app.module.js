@@ -88,8 +88,11 @@
               'header@home': {
                 templateUrl: 'app/features/home/homeHeader.html'
               },
+              // 'section@home': {
+              //   templateUrl: 'app/features/home/catalogMovies.html'
+              // },
               'section@home': {
-                templateUrl: 'app/features/home/catalogMovies.html'
+                templateUrl: 'app/features/home/catalog.html'
               }
             }
           }
