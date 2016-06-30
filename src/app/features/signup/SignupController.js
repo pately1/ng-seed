@@ -8,8 +8,14 @@ myApp.controller('SignupController', ['$scope', function ($scope) {
   this.userInfo.email2 = '';
     $scope.submit = function () {
       myList.push(this.userInfo);
-      for (var x in myList){
-        console.log(myList[x]);
+      sessionStorage.setItem("userdata", JSON.stringify(myList));
+      var a = JSON.parse(sessionStorage.getItem("userdata"));
+      console.log(a);
+      for (var q in a){
+        console.log(a[q]);
       }
+      // for (var x in myList){
+      //   console.log(myList[x]);
+      // }
     }
 }]);

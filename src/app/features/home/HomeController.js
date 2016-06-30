@@ -1,8 +1,15 @@
 angular.module('homepage', [])
   .controller('ModalInstanceCtrl', ['$scope', 'movie', function ($scope, movie) {
-  $scope.movie = movie;
+    $scope.movie = movie;
+    comments = [];
+    $scope.data = function (movie) {
+      comments.push($scope.comment);
+      movie.comms = comments;
+      console.log(movie);
+      //movie.comments = comment;
+    };
   }])
-.controller('MainController', ['$scope','$timeout','$http','$uibModal', function ($scope,$timeout, $http, $uibModal) {
+.controller('MainController', ['$scope','$http','$uibModal', function ($scope, $http, $uibModal) {
     $http.get('app/features/home/movielist.json').success(function (response) {
       $scope.list = response;
     })
@@ -20,45 +27,55 @@ angular.module('homepage', [])
     });
 
   };
-  $scope.filtText = 'movie';
-  $scope.sortTab = '';
-  $scope.tab = 1;
-  $scope.ordr = '';
-  $scope.isSelected = function (checkTab) {
-    return ($scope.tab == checkTab);
+
+  // For Movies
+  $scope.filtText1 = '';
+  $scope.sortTab1 = '';
+  $scope.ordr1 = '';
+
+  // For TV shows
+  $scope.filtText2 = '';
+  $scope.sortTab2 = '';
+  $scope.ordr2 = '';
+
+  // For Movies
+
+  $scope.search = function () {
+    $scope.filtText1 = $scope.searchData;
   }
-  $scope.select = function (setTab) {
+
+  $scope.genreSort = function (setTab) {
     console.log(setTab);
     if (setTab == 1){
-      $scope.ordr = 'Action';
+      $scope.ordr1 = 'Action';
     }
     else if (setTab == 2){
       console.log('IN');
-      $scope.ordr = 'Adventure';
+      $scope.ordr1 = 'Adventure';
     }
     else if (setTab == 3){
-      $scope.ordr = 'Sci-Fi';
+      $scope.ordr1 = 'Sci-Fi';
     }
     else if (setTab == 4){
-      $scope.ordr = 'Thriller';
+      $scope.ordr1 = 'Thriller';
     }
     else if (setTab == 5){
-      $scope.ordr = 'Crime';
+      $scope.ordr1 = 'Crime';
     }
     else if (setTab == 6){
-      $scope.ordr = 'Drama';
+      $scope.ordr1 = 'Drama';
     }
     else if (setTab == 7){
-      $scope.ordr = 'Fantasy';
+      $scope.ordr1 = 'Fantasy';
     }
     else if (setTab == 8){
-      $scope.ordr = 'Comedy';
+      $scope.ordr1 = 'Comedy';
     }
     else if (setTab == 9){
-      $scope.ordr = 'History';
+      $scope.ordr1 = 'History';
     }
     else if (setTab == 10){
-      $scope.ordr = '';
+      $scope.ordr1 = '';
     }
     // $scope.tab = setTab;
     // if ($scope.tab == 1){
@@ -68,19 +85,75 @@ angular.module('homepage', [])
     //   $scope.filtText = 'series';
     // }
   }
-$scope.selectSort = function (tab) {
+$scope.sortMovie = function (tab) {
   if (tab == 1){
-    $scope.sortTab = '-Year';
+    $scope.sortTab1 = '-Year';
   }
   else if (tab == 2){
     console.log('IN');
-    $scope.sortTab = '-imdbRatings';
+    $scope.sortTab1 = '-imdbRating';
   }
   else if (tab == 3){
-    $scope.sortTab = '-imdbVotes';
+    $scope.sortTab1 = '-imdbVotes';
   }
   else if (tab == 4){
-    $scope.sortTab = '';
+    $scope.sortTab1 = '';
   }
 }
+  // For TV Shows
+
+  $scope.genreSortTv = function (setTab) {
+    console.log(setTab);
+    if (setTab == 1){
+      $scope.ordr2 = 'Action';
+    }
+    else if (setTab == 2){
+      console.log('IN');
+      $scope.ordr2 = 'Adventure';
+    }
+    else if (setTab == 3){
+      $scope.ordr2 = 'Sci-Fi';
+    }
+    else if (setTab == 4){
+      $scope.ordr2 = 'Thriller';
+    }
+    else if (setTab == 5){
+      $scope.ordr2 = 'Crime';
+    }
+    else if (setTab == 6){
+      $scope.ordr2 = 'Drama';
+    }
+    else if (setTab == 7){
+      $scope.ordr2 = 'Fantasy';
+    }
+    else if (setTab == 8){
+      $scope.ordr2 = 'Comedy';
+    }
+    else if (setTab == 9){
+      $scope.ordr2 = 'History';
+    }
+    else if (setTab == 10){
+      $scope.ordr2 = '';
+    }
+  }
+
+  $scope.sortTv = function (tab) {
+    if (tab == 1){
+      $scope.sortTab2 = '-Year';
+    }
+    else if (tab == 2){
+      console.log('IN');
+      $scope.sortTab2 = '-imdbRating';
+    }
+    else if (tab == 3){
+      $scope.sortTab2 = '-imdbVotes';
+    }
+    else if (tab == 4){
+      $scope.sortTab2 = '';
+    }
+  }
+
+  $scope.searchTv = function () {
+    $scope.filtText2 = $scope.searchDataTv;
+  }
 }]);

@@ -6,7 +6,7 @@ html {
 body {
   padding-top: 200px;
   -webkit-font-smoothing: antialiased;
-  background: url("https://images5.alphacoders.com/432/432955.jpg") no-repeat center center fixed;
+  background: url("https://images5.alphacoders.com/432/432955.jpg") no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -69,6 +69,6 @@ footer {
   font-family: cursive;
   display: inline;
 }
-h3>div{
-  font-size: 30px;
+.test{
+  font-size: 20px;
 }

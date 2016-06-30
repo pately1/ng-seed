@@ -8,8 +8,9 @@ angular.module('signin',[])
       $window.alert('Error');
     }
     if (myList.length != 0){
-      for (var x in myList){
-        if (myList[x].user2 == this.username && myList[x].pwd2 == this.pwd){
+      var a = JSON.parse(sessionStorage.getItem("userdata"));
+      for (var x in a){
+        if (a[x].user2 == this.username && a[x].pwd2 == this.pwd){
           $location.path('/home');
           $rootScope.auth = true;
         }
