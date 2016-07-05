@@ -5,9 +5,9 @@
         .module('egen.app', [
             'ui-notification',
 
-            'egen.app.phoneFilter',
+           // 'egen.app.phoneFilter',
             'egen.app.header',
-            'egen.app.footer',
+            //'egen.app.footer',
             'signup',
             'signin',
             'homepage'
@@ -71,14 +71,14 @@
           })
 
           .state('home', {
-               /*resolve: {
-              check : function ($location, $rootScope) {
-                console.log($rootScope.auth);
-                if (!$rootScope.auth){
-                  $location.path('/login');
-                }
-              }
-            },*/
+            //    resolve: {
+            //   check : function ($location, $rootScope) {
+            //     console.log($rootScope.auth);
+            //     if (!$rootScope.auth){
+            //       $location.path('/login');
+            //     }
+            //   }
+            // },
             url : '/home',
             views: {
               '@': {

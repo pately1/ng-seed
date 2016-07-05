@@ -1,4 +1,4 @@
-<div class="container" ng-controller="MainController" xmlns="http://www.w3.org/1999/html">
+<div class="container" ng-controller="MainController">
   <h3 class="class1">
     Movies
     <div class="btn-group" uib-dropdown>
@@ -42,9 +42,9 @@
             <h3 class="modal-title text-center">{{movie.Title}}<small><strong><a href="https://www.imdb.com/title/{{movie.imdbID}}"> IMDB</a> : {{movie.imdbRating}}</strong></small></h3>
           </div>
           <div class="modal-body">
-            <p><strong>Actors: {{movie.Actors}}</strong></p><br/>
-            <p ng-repeat="x in movie.comms track by $index">{{x}}</p>
-            <input type="text" ng-model="comment"><button type="button" ng-click="data(movie)">Click</button>
+            <p><strong>Director: {{movie.Director}}</strong></p>
+            <p><strong>Actors: {{movie.Actors}}</strong></p>
+            <p><strong>Plot: {{movie.Plot}}</strong></p>
           </div>
           <div class="modal-footer">
 

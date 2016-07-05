@@ -1,18 +1,15 @@
+(function (angular) {
+  'use strict';
+
+
 angular.module('homepage', [])
   .controller('ModalInstanceCtrl', ['$scope', 'movie', function ($scope, movie) {
     $scope.movie = movie;
-    comments = [];
-    $scope.data = function (movie) {
-      comments.push($scope.comment);
-      movie.comms = comments;
-      console.log(movie);
-      //movie.comments = comment;
-    };
   }])
 .controller('MainController', ['$scope','$http','$uibModal', function ($scope, $http, $uibModal) {
     $http.get('app/features/home/movielist.json').success(function (response) {
       $scope.list = response;
-    })
+    });
   $scope.open = function (_movie) {
 
     var modalInstance = $uibModal.open({
@@ -39,10 +36,10 @@ angular.module('homepage', [])
   $scope.ordr2 = '';
 
   // For Movies
-
+  $scope.searchData = '';
   $scope.search = function () {
     $scope.filtText1 = $scope.searchData;
-  }
+  };
 
   $scope.genreSort = function (setTab) {
     console.log(setTab);
@@ -84,7 +81,7 @@ angular.module('homepage', [])
     // else {
     //   $scope.filtText = 'series';
     // }
-  }
+  };
 $scope.sortMovie = function (tab) {
   if (tab == 1){
     $scope.sortTab1 = '-Year';
@@ -99,7 +96,7 @@ $scope.sortMovie = function (tab) {
   else if (tab == 4){
     $scope.sortTab1 = '';
   }
-}
+};
   // For TV Shows
 
   $scope.genreSortTv = function (setTab) {
@@ -135,7 +132,7 @@ $scope.sortMovie = function (tab) {
     else if (setTab == 10){
       $scope.ordr2 = '';
     }
-  }
+  };
 
   $scope.sortTv = function (tab) {
     if (tab == 1){
@@ -151,9 +148,10 @@ $scope.sortMovie = function (tab) {
     else if (tab == 4){
       $scope.sortTab2 = '';
     }
-  }
-
+  };
+  $scope.searchDataTv = '';
   $scope.searchTv = function () {
     $scope.filtText2 = $scope.searchDataTv;
   }
 }]);
+})(angular);
