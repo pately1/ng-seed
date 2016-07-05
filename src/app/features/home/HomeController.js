@@ -31,15 +31,17 @@ angular.module('homepage', [])
   this.ordr1 = '';
 
   // For TV shows
-  $scope.filtText2 = '';
-  $scope.sortTab2 = '';
-  $scope.ordr2 = '';
+  // $scope.filtText2 = '';
+  // $scope.sortTab2 = '';
+  // $scope.ordr2 = '';
 
   // For Movies
-  this.searchData = '';
-  this.search = function () {
-    this.filtText1 = this.searchData;
-  };
+ // this.searchData = '';
+  // this.search = function () {
+  //   this.filtText1 = this.searchData;
+  // };
+  $scope.filtText1 = '';
+  $scope.filtText2 = '';
 
   this.genreSort = function (setTab) {
     console.log(setTab);
