@@ -1,4 +1,5 @@
-<div class="container" ng-controller="MainController">
+<div class="container">
+  <div ng-controller="MainController as mv">
   <h3 class="class1">
     Movies
     <div class="btn-group" uib-dropdown>
@@ -6,16 +7,16 @@
         Genre <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-        <li role="menuitem"><a ng-click="genreSort(1)" role="button">Action</a></li>
-        <li role="menuitem"><a ng-click="genreSort(2)" role="button">Adventure</a></li>
-        <li role="menuitem"><a ng-click="genreSort(3)" role="button">Sci-Fi</a></li>
-        <li role="menuitem"><a ng-click="genreSort(4)" role="button">Thriller</a></li>
-        <li role="menuitem"><a ng-click="genreSort(5)" role="button">Crime</a></li>
-        <li role="menuitem"><a ng-click="genreSort(6)" role="button">Drama</a></li>
-        <li role="menuitem"><a ng-click="genreSort(7)" role="button">Fantasy</a></li>
-        <li role="menuitem"><a ng-click="genreSort(8)" role="button">Comedy</a></li>
-        <li role="menuitem"><a ng-click="genreSort(9)" role="button">History</a></li>
-        <li role="menuitem"><a ng-click="genreSort(10)" role="button">All</a></li>
+        <li role="menuitem"><a ng-click="mv.genreSort(1)" role="button">Action</a></li>
+        <li role="menuitem"><a ng-click="mv.genreSort(2)" role="button">Adventure</a></li>
+        <li role="menuitem"><a ng-click="mv.genreSort(3)" role="button">Sci-Fi</a></li>
+        <li role="menuitem"><a ng-click="mv.genreSort(4)" role="button">Thriller</a></li>
+        <li role="menuitem"><a ng-click="mv.genreSort(5)" role="button">Crime</a></li>
+        <li role="menuitem"><a ng-click="mv.genreSort(6)" role="button">Drama</a></li>
+        <li role="menuitem"><a ng-click="mv.genreSort(7)" role="button">Fantasy</a></li>
+        <li role="menuitem"><a ng-click="mv.genreSort(8)" role="button">Comedy</a></li>
+        <li role="menuitem"><a ng-click="mv.genreSort(9)" role="button">History</a></li>
+        <li role="menuitem"><a ng-click="mv.genreSort(10)" role="button">All</a></li>
       </ul>
     </div>
     <div class="btn-group" uib-dropdown>
@@ -23,18 +24,18 @@
         SortBy <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-        <li role="menuitem"><a ng-click="sortMovie(1)" role="button">Year</a></li>
-        <li role="menuitem"><a ng-click="sortMovie(2)" role="button">IMDB Ratings</a></li>
-        <li role="menuitem"><a ng-click="sortMovie(3)" role="button">IMDB Votes</a></li>
-        <li role="menuitem"><a ng-click="sortMovie(4)" role="button">Remove sort</a></li>
+        <li role="menuitem"><a ng-click="mv.sortMovie(1)" role="button">Year</a></li>
+        <li role="menuitem"><a ng-click="mv.sortMovie(2)" role="button">IMDB Ratings</a></li>
+        <li role="menuitem"><a ng-click="mv.sortMovie(3)" role="button">IMDB Votes</a></li>
+        <li role="menuitem"><a ng-click="mv.sortMovie(4)" role="button">Remove sort</a></li>
       </ul>
     </div>
-    <input class="test" type="text" ng-model="searchData" placeholder="Search">
-    <button class="test" type="button" ng-click="search()">Search</button>
+    <input class="test" type="text" ng-model="mv.searchData" placeholder="Search">
+    <button class="test" type="button" ng-click="mv.search()">Search</button>
   </h3>
   <div class="row"><br/>
     <div class="scrolling" id="style-7">
-      <div class="item" ng-repeat="movie in list | filter:'movie' | filter:filtText1 | filter:ordr1 | orderBy:sortTab1">
+      <div class="item" ng-repeat="movie in list | filter:'movie' | filter:mv.filtText1 | filter:mv.ordr1 | orderBy:mv.sortTab1">
         <a role="button" ng-click="open(movie)"><img src="{{movie.Poster}}" style="height: 250px; width: 170px;"></a>
         <script type="text/ng-template" id="myModalContent.html">
 
@@ -54,23 +55,25 @@
       </div>
     </div>
   </div>
+  </div>
   <hr/>
+  <div ng-controller="MainController as tv">
   <h3 class="class1">TV Shows
     <div class="btn-group" uib-dropdown>
       <button id="single-button" type="button" class="btn btn-default" uib-dropdown-toggle ng-disabled="disabled">
         Genre <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-        <li role="menuitem"><a ng-click="genreSortTv(1)" role="button">Action</a></li>
-        <li role="menuitem"><a ng-click="genreSortTv(2)" role="button">Adventure</a></li>
-        <li role="menuitem"><a ng-click="genreSortTv(3)" role="button">Sci-Fi</a></li>
-        <li role="menuitem"><a ng-click="genreSortTv(4)" role="button">Thriller</a></li>
-        <li role="menuitem"><a ng-click="genreSortTv(5)" role="button">Crime</a></li>
-        <li role="menuitem"><a ng-click="genreSortTv(6)" role="button">Drama</a></li>
-        <li role="menuitem"><a ng-click="genreSortTv(7)" role="button">Fantasy</a></li>
-        <li role="menuitem"><a ng-click="genreSortTv(8)" role="button">Comedy</a></li>
-        <li role="menuitem"><a ng-click="genreSortTv(9)" role="button">History</a></li>
-        <li role="menuitem"><a ng-click="genreSortTv(10)" role="button">All</a></li>
+        <li role="menuitem"><a ng-click="tv.genreSort(1)" role="button">Action</a></li>
+        <li role="menuitem"><a ng-click="tv.genreSort(2)" role="button">Adventure</a></li>
+        <li role="menuitem"><a ng-click="tv.genreSort(3)" role="button">Sci-Fi</a></li>
+        <li role="menuitem"><a ng-click="tv.genreSort(4)" role="button">Thriller</a></li>
+        <li role="menuitem"><a ng-click="tv.genreSort(5)" role="button">Crime</a></li>
+        <li role="menuitem"><a ng-click="tv.genreSort(6)" role="button">Drama</a></li>
+        <li role="menuitem"><a ng-click="tv.genreSort(7)" role="button">Fantasy</a></li>
+        <li role="menuitem"><a ng-click="tv.genreSort(8)" role="button">Comedy</a></li>
+        <li role="menuitem"><a ng-click="tv.genreSort(9)" role="button">History</a></li>
+        <li role="menuitem"><a ng-click="tv.genreSort(10)" role="button">All</a></li>
       </ul>
     </div>
     <div class="btn-group" uib-dropdown>
@@ -78,18 +81,18 @@
         SortBy <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-        <li role="menuitem"><a ng-click="sortTv(1)" role="button">Year</a></li>
-        <li role="menuitem"><a ng-click="sortTv(2)" role="button">IMDB Ratings</a></li>
-        <li role="menuitem"><a ng-click="sortTv(3)" role="button">IMDB Votes</a></li>
-        <li role="menuitem"><a ng-click="sortTv(4)" role="button">Remove sort</a></li>
+        <li role="menuitem"><a ng-click="tv.sortMovie(1)" role="button">Year</a></li>
+        <li role="menuitem"><a ng-click="tv.sortMovie(2)" role="button">IMDB Ratings</a></li>
+        <li role="menuitem"><a ng-click="tv.sortMovie(3)" role="button">IMDB Votes</a></li>
+        <li role="menuitem"><a ng-click="tv.sortMovie(4)" role="button">Remove sort</a></li>
       </ul>
     </div>
-    <input class="test" type="text" ng-model="searchDataTv" placeholder="Search">
-    <button class="test" type="button" ng-click="searchTv()">Search</button>
+    <input class="test" type="text" ng-model="tv.searchData" placeholder="Search">
+    <button class="test" type="button" ng-click="tv.search()">Search</button>
   </h3>
   <div class="row"><br/>
     <div class="scrolling" id="style-7">
-      <div class="item" ng-repeat="movie in list | filter:'series' | filter:filtText2 | filter:ordr2 | orderBy:sortTab2">
+      <div class="item" ng-repeat="movie in list | filter:'series' | filter:tv.filtText1 | filter:tv.ordr1 | orderBy:tv.sortTab1">
         <a role="button" ng-click="open(movie)"><img src="{{movie.Poster}}" style="height: 250px; width: 170px;"></a>
         <!--<script type="text/ng-template" id="myModalContent.html">-->
 
@@ -107,4 +110,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
