@@ -6,11 +6,11 @@ angular.module('homepage', [])
   .controller('ModalInstanceCtrl', ['$scope', 'movie', function ($scope, movie) {
     $scope.movie = movie;
   }])
-.controller('MainController', ['$scope','$http','$uibModal', function ($scope, $http, $uibModal) {
+  .controller('MainController', ['$scope','$http','$uibModal','filterData','sortData', function ($scope, $http, $uibModal, filterData, sortData) {
     $http.get('app/features/home/movielist.json').success(function (response) {
       $scope.list = response;
     });
-  $scope.open = function (_movie) {
+   $scope.open = function (inst) {
 
     var modalInstance = $uibModal.open({
       controller: "ModalInstanceCtrl",
@@ -18,7 +18,7 @@ angular.module('homepage', [])
       resolve: {
         movie: function()
         {
-          return _movie;
+          return inst;
         }
       }
     });
@@ -26,7 +26,6 @@ angular.module('homepage', [])
   };
 
   // For Movies
-  this.filtText1 = '';
   this.sortTab1 = '';
   this.ordr1 = '';
 
@@ -45,37 +44,7 @@ angular.module('homepage', [])
 
   this.genreSort = function (setTab) {
     console.log(setTab);
-    if (setTab == 1){
-      this.ordr1 = 'Action';
-    }
-    else if (setTab == 2){
-      console.log('IN');
-      this.ordr1 = 'Adventure';
-    }
-    else if (setTab == 3){
-      this.ordr1 = 'Sci-Fi';
-    }
-    else if (setTab == 4){
-      this.ordr1 = 'Thriller';
-    }
-    else if (setTab == 5){
-      this.ordr1 = 'Crime';
-    }
-    else if (setTab == 6){
-      this.ordr1 = 'Drama';
-    }
-    else if (setTab == 7){
-      this.ordr1 = 'Fantasy';
-    }
-    else if (setTab == 8){
-      this.ordr1 = 'Comedy';
-    }
-    else if (setTab == 9){
-      this.ordr1 = 'History';
-    }
-    else if (setTab == 10){
-      this.ordr1 = '';
-    }
+    this.ordr1 = filterData.filtData(setTab);
     // $scope.tab = setTab;
     // if ($scope.tab == 1){
     //   $scope.filtText = 'movie';
@@ -85,19 +54,7 @@ angular.module('homepage', [])
     // }
   };
 this.sortMovie = function (tab) {
-  if (tab == 1){
-    this.sortTab1 = '-Year';
-  }
-  else if (tab == 2){
-    console.log('IN');
-    this.sortTab1 = '-imdbRating';
-  }
-  else if (tab == 3){
-    this.sortTab1 = '-imdbVotes';
-  }
-  else if (tab == 4){
-    this.sortTab1 = '';
-  }
+  this.sortTab1 = sortData.srtData(tab);
 };
   // For TV Shows
 
