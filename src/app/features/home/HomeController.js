@@ -7,7 +7,7 @@ angular.module('homepage', [])
     $scope.movie = movie;
   }])
   .controller('MainController', ['$scope','$http','$uibModal','filterData','sortData', function ($scope, $http, $uibModal, filterData, sortData) {
-    $http.get('app/features/home/movielist.json').success(function (response) {
+    $http.get('http://localhost:8080/app/api/movies').success(function (response) {
       $scope.list = response;
     });
    $scope.open = function (inst) {

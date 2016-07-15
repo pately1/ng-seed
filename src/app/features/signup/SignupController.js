@@ -4,15 +4,20 @@ var myList = [];
 
 
 var myApp = angular.module('signup',[]);
-myApp.controller('SignupController', ['$scope', function ($scope) {
+myApp.controller('SignupController', ['$scope', '$http', function ($scope, $http) {
   //var signup = this;
   this.userInfo = {};
-  this.userInfo.user2 = '';
-  this.userInfo.pwd2 = '';
-  this.userInfo.email2 = '';
+  this.userInfo.username = '';
+  this.userInfo.password = '';
+  this.userInfo.email = '';
     $scope.submit = function () {
       myList.push(this.userInfo);
       sessionStorage.setItem("userdata", JSON.stringify(myList));
+      console.log(angular.toJson(this.userInfo));
+      $http.post('http://localhost:8080/app/api/users',this.userInfo).success(function(response)
+      {
+        console.log(response);
+      });
       // var a = JSON.parse(sessionStorage.getItem("userdata"));
       // console.log(a);
       // for (var q in a){
@@ -21,6 +26,8 @@ myApp.controller('SignupController', ['$scope', function ($scope) {
       // for (var x in myList){
       //   console.log(myList[x]);
       // }
-    }
+    };
+
+
 }]);
 })(angular);

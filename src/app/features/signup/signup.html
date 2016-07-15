@@ -7,16 +7,16 @@
     <div class="panel-body">
       <form name="myForm2" ng-controller="SignupController" novalidate>
         <div class="input-group-lg has-feedback">
-          <input type="text" name="user2" minlength="6" ng-model="userInfo.user2" class="form-control" placeholder="Username" required>
+          <input type="text" name="user2" minlength="6" ng-model="userInfo.username" class="form-control" placeholder="Username" required>
           <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="!myForm2.user2.$invalid"></span>
           <!--<span class="glyphicon glyphicon-remove form-control-feedback" ng-show="myForm2.user2.$touched && myForm2.user2.$invalid"></span>-->
         </div><br/>
         <div class="input-group-lg has-feedback">
-          <input type="password" class="form-control" placeholder="Password" ng-model="userInfo.pwd2" name="pwd2" minlength="6" required>
+          <input type="password" class="form-control" placeholder="Password" ng-model="userInfo.password" name="pwd2" minlength="6" required>
           <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="!myForm2.pwd2.$invalid"></span>
         </div><br/>
         <div class="input-group-lg has-feedback">
-          <input type="email" class="form-control" placeholder="E-mail Address" ng-model="userInfo.email2" name="email2" required>
+          <input type="email" class="form-control" placeholder="E-mail Address" ng-model="userInfo.email" name="email2" required>
           <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="!myForm2.email2.$invalid"></span>
         </div><br/>
         <div>

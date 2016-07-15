@@ -36,16 +36,17 @@
   <div class="row"><br/>
     <div class="scrolling" id="style-7">
       <div class="item" ng-repeat="movie in list | filter:'movie' | filter:filtText1 | filter:mv.ordr1 | orderBy:mv.sortTab1">
-        <a role="button" ng-click="open(movie)"><img src="{{movie.Poster}}" style="height: 250px; width: 170px;"></a>
+        <a role="button" ng-click="open(movie)"><img src="{{movie.poster}}" style="height: 250px; width: 170px;"></a>
         <script type="text/ng-template" id="myModalContent.html">
 
           <div class="modal-header">
-            <h3 class="modal-title text-center">{{movie.Title}}<small><strong><a href="https://www.imdb.com/title/{{movie.imdbID}}"> IMDB</a> : {{movie.imdbRating}}</strong></small></h3>
+            <h3 class="modal-title text-center">{{movie.title}}<small><strong><a href="https://www.imdb.com/title/{{movie.imdbID}}"> IMDB</a> : {{movie.imdbRating}}</strong></small></h3>
           </div>
           <div class="modal-body">
-            <p><strong>Director: {{movie.Director}}</strong></p>
-            <p><strong>Actors: {{movie.Actors}}</strong></p>
-            <p><strong>Plot: {{movie.Plot}}</strong></p>
+            <p><strong>Director: {{movie.director}}</strong></p>
+            <p><strong>Actors: {{movie.actors}}</strong></p>
+            <p><strong>Plot: {{movie.plot}}</strong></p>
+            <p><strong>Comments:</strong> {{movie.comments}}</p>
           </div>
           <div class="modal-footer">
 
@@ -93,7 +94,7 @@
   <div class="row"><br/>
     <div class="scrolling" id="style-7">
       <div class="item" ng-repeat="movie in list | filter:'series' | filter:filtText2 | filter:tv.ordr1 | orderBy:tv.sortTab1">
-        <a role="button" ng-click="open(movie)"><img src="{{movie.Poster}}" style="height: 250px; width: 170px;"></a>
+        <a role="button" ng-click="open(movie)"><img src="{{movie.poster}}" style="height: 250px; width: 170px;"></a>
         <!--<script type="text/ng-template" id="myModalContent.html">-->
 
           <!--<div class="modal-header">-->
