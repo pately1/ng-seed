@@ -30,23 +30,25 @@
         <li role="menuitem"><a ng-click="mv.sortMovie(4)" role="button">Remove sort</a></li>
       </ul>
     </div>
-    <input class="test" type="text" ng-model="filtText1" placeholder="Search">
+    <input class="test" type="text" ng-model="mv.filtText1" placeholder="Search">
     <!--<button class="test" type="button" ng-click="mv.search()">Search</button>-->
   </h3>
   <div class="row"><br/>
     <div class="scrolling" id="style-7">
-      <div class="item" ng-repeat="movie in list | filter:'movie' | filter:filtText1 | filter:mv.ordr1 | orderBy:mv.sortTab1">
-        <a role="button" ng-click="open(movie)"><img src="{{movie.poster}}" style="height: 250px; width: 170px;"></a>
+      <div class="item" ng-repeat="movie in list | filter:'movie' | filter:mv.filtText1 | filter:mv.ordr1 | orderBy:mv.sortTab1">
+        <a role="button" ng-click="mv.open(movie)"><img src="{{movie.poster}}" style="height: 250px; width: 170px;"></a>
         <script type="text/ng-template" id="myModalContent.html">
 
           <div class="modal-header">
-            <h3 class="modal-title text-center">{{movie.title}}<small><strong><a href="https://www.imdb.com/title/{{movie.imdbID}}"> IMDB</a> : {{movie.imdbRating}}</strong></small></h3>
+            <h3 class="modal-title text-center">{{mi.movie.title}}<small><strong><a href="https://www.imdb.com/title/{{mi.movie.imdbID}}"> IMDB</a> : {{mi.movie.imdbRating}}</strong></small></h3>
           </div>
           <div class="modal-body">
-            <p><strong>Director: {{movie.director}}</strong></p>
-            <p><strong>Actors: {{movie.actors}}</strong></p>
-            <p><strong>Plot: {{movie.plot}}</strong></p>
-            <p><strong>Comments:</strong> {{movie.comments}}</p>
+            <p><strong>Director: {{mi.movie.director}}</strong></p>
+            <p><strong>Actors: {{mi.movie.actors}}</strong></p>
+            <p><strong>Plot: {{mi.movie.plot}}</strong></p>
+            <p><strong>Comments:</strong></p>
+            <p ng-repeat="x in mi.movie.comments.split(',')">{{x}}</p>
+            <input type="text" ng-model="comm" ><button type="button" ng-click = "mi.click(movie)">Submit</button>
           </div>
           <div class="modal-footer">
 
@@ -88,13 +90,13 @@
         <li role="menuitem"><a ng-click="tv.sortMovie(4)" role="button">Remove sort</a></li>
       </ul>
     </div>
-    <input class="test" type="text" ng-model="filtText2" placeholder="Search">
+    <input class="test" type="text" ng-model="tv.filtText2" placeholder="Search">
     <!--<button class="test" type="button" ng-click="tv.search()">Search</button>-->
   </h3>
   <div class="row"><br/>
     <div class="scrolling" id="style-7">
-      <div class="item" ng-repeat="movie in list | filter:'series' | filter:filtText2 | filter:tv.ordr1 | orderBy:tv.sortTab1">
-        <a role="button" ng-click="open(movie)"><img src="{{movie.poster}}" style="height: 250px; width: 170px;"></a>
+      <div class="item" ng-repeat="movie in list | filter:'series' | filter:tv.filtText2 | filter:tv.ordr1 | orderBy:tv.sortTab1">
+        <a role="button" ng-click="tv.open(movie)"><img src="{{movie.poster}}" style="height: 250px; width: 170px;"></a>
         <!--<script type="text/ng-template" id="myModalContent.html">-->
 
           <!--<div class="modal-header">-->

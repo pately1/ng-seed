@@ -56,6 +56,13 @@
           }
         }
       }
-    });
+    })
+    .factory('putComm',['$http', function ($http) {
+      return {
+        upd : function (id, movie) {
+         $http.put('http://localhost:8080/app/api/movies/' +id, movie);
+        }
+      };
+    }]);
 
 })(angular);

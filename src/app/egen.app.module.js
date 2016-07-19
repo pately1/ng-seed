@@ -71,14 +71,14 @@
           })
 
           .state('home', {
-            //    resolve: {
-            //   check : function ($location, $rootScope) {
-            //     console.log($rootScope.auth);
-            //     if (!$rootScope.auth){
-            //       $location.path('/login');
-            //     }
-            //   }
-            // },
+               resolve: {
+              check : function ($location, $rootScope) {
+                console.log($rootScope.auth);
+                if (!$rootScope.auth){
+                  $location.path('/login');
+                }
+              }
+            },
             url : '/home',
             views: {
               '@': {

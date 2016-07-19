@@ -10,11 +10,11 @@ myApp.controller('SignupController', ['$scope', '$http', function ($scope, $http
   this.userInfo.username = '';
   this.userInfo.password = '';
   this.userInfo.email = '';
-    $scope.submit = function () {
+    this.submit = function () {
       myList.push(this.userInfo);
       sessionStorage.setItem("userdata", JSON.stringify(myList));
       console.log(angular.toJson(this.userInfo));
-      $http.post('http://localhost:8080/app/api/users',this.userInfo).success(function(response)
+      $http.post('http://localhost:8080/app/api/users',angular.toJson(this.userInfo)).success(function(response)
       {
         console.log(response);
       });
