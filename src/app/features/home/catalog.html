@@ -46,9 +46,14 @@
             <p><strong>Director: {{mi.movie.director}}</strong></p>
             <p><strong>Actors: {{mi.movie.actors}}</strong></p>
             <p><strong>Plot: {{mi.movie.plot}}</strong></p>
+            <p><strong>Ratings :</strong>
+            <uib-rating ng-model="mi.rate" max="mi.max" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+            <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar">{{percent}}%</span>
+            <button type="button" ng-click="mi.rating(mi.movie)">Rate!</button>
+            </p>
             <p><strong>Comments:</strong></p>
             <p ng-repeat="x in mi.movie.comments.split(',')">{{x}}</p>
-            <input type="text" ng-model="comm" ><button type="button" ng-click = "mi.click(movie)">Submit</button>
+            <input type="text" ng-model="mi.comm" ><button type="button" ng-click = "mi.click(mi.movie)">Submit</button>
           </div>
           <div class="modal-footer">
 

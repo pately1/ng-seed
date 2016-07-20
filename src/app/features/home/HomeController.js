@@ -9,11 +9,21 @@ angular.module('homepage', [])
     var comments = [];
     comments.push(movie.comments);
     this.click = function (movie) {
-     comments.push($scope.comm);
+     comments.push(this.comm);
+      console.log(movie);
       movie.comments = comments.toString();
       console.log(movie);
       putComm.upd(movie.id, movie);
     }
+    this.rate = movie.ratings;
+    console.log(movie.ratings);
+    this.max = 5;
+    var rates = movie.ratings;
+    this.rating = function (mv) {
+      rates = ((this.rate + mv.ratings)/2);
+      mv.ratings = rates;
+      putComm.upd(mv.id, mv);
+    };
   }])
   .controller('MainController', ['$scope','$http','$uibModal','filterData','sortData','ajaxService', function ($scope, $http, $uibModal, filterData, sortData, ajaxService) {
    ajaxService.success(function (response) {
